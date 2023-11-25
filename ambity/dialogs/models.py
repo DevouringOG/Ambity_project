@@ -85,4 +85,4 @@ class DialogCard(django.db.models.Model):
 
     class Meta:
         verbose_name = 'карточка контакта'
-        verbose_name_plural = 'карточки контакта'
+        verbose_name_plural = 'карточки контактов'
