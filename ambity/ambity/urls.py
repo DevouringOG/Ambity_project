@@ -9,8 +9,8 @@ urlpatterns = [
         "admin/",
         django.contrib.admin.site.urls,
     ),
-    # django.urls.include(
-    #     "dialogs/",
-    #     dialogs.urls,
-    # )
+    django.urls.path(
+        "dialogs/",
+        django.urls.include(dialogs.urls)
+    )
 ]
