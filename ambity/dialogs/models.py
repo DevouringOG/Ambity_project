@@ -34,11 +34,19 @@ class Operator(django.db.models.Model):
 
 
 class Transcription(django.db.models.Model):
-    operator_transcription = django.db.models.TextField()
-    contact_transcription = django.db.models.TextField()
+    operator_transcription = django.db.models.JSONField(
+        "транскрипция оператора",
+        null=True,
+        blank=True,
+    )
+    contact_transcription = django.db.models.JSONField(
+        "транскрипция клиента",
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
-        return f"транскрипция для {self.conversation}"
+        return f"транскрипция {self.id}"
 
     class Meta:
         verbose_name = 'транскрипция'
@@ -51,9 +59,7 @@ class Conversation(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
         related_name="conversation",
     )
-    contact_audio = django.db.models.FileField(
-        upload_to="conversation_audio/",
-    )
+    contact_audio = django.db.models.URLField()
 
     def __str__(self):
         return f"разговор {self.id}"
