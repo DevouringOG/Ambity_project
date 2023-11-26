@@ -1,0 +1,10 @@
+<div class="col">
+  <div class="card card-cover h-70 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+    <div class="d-flex flex-column h-100 p-5 pb-5 text-white text-shadow-1">
+      <a href="{% url 'dialogs:dialog_detail' dialog.pk %}"><h3 class="pt-2 mt-2 mb-2 display-5 fw-bold">{{ dialog }}</h3></a>
+      <small>{{ dialog.call_date }}</small>
+      <p class="pt-2 mt-2 mb-2">{{ dialog.operator.full_name }}</p>
+      <span class="tag tag-danger">{{ dialog.status }}</span>
+    </div>
+  </div>
+</div>

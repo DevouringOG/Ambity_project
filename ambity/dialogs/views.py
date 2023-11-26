@@ -3,7 +3,6 @@ import dialogs.models
 import requests
 import django.urls
 import django.shortcuts
-import re
 
 import dialogs.transcription
 
@@ -11,7 +10,7 @@ import dialogs.transcription
 class DialogListView(django.views.generic.ListView):
     template_name = "dialogs/list.html"
     model = dialogs.models.DialogCard
-    context_object_name = "items"
+    context_object_name = "dialog_list"
 
     def get_queryset(self):
         return super().get_queryset()
@@ -20,7 +19,7 @@ class DialogListView(django.views.generic.ListView):
 class DialogDetailView(django.views.generic.DetailView):
     template_name = "dialogs/detail.html"
     model = dialogs.models.DialogCard
-    context_object_name = "item"
+    context_object_name = "dialog"
 
     def get_queryset(self):
         return super().get_queryset()

@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<p>detail</p>
+<p>{{ dialog }}</p>
+<p>{{ dialog.call_date }}</p>
+<p>{{ dialog.contact.full_name }}</p>
+<p>{{ dialog.contact.phone }}</p>
+<p>{{ dialog.operator.full_name }}</p>
+<p>{{ dialog.conversation.contact_audio }}</p>
+<p>{{ dialog.conversation.transcription.operator_transcription }}</p>
+<p>{{ dialog.conversation.transcription.contact_transcription }}</p>
+
 {% endblock content %}

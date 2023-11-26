@@ -70,6 +70,11 @@ class Conversation(django.db.models.Model):
 
 
 class DialogCard(django.db.models.Model):
+    CHOICES = (
+        ("New", "Новое"),
+        ("Work", "В работе"),
+        ("Done", "Обработано"),
+    )
     call_date = django.db.models.DateTimeField(
         verbose_name="Дата и время звонка",
     )
@@ -85,9 +90,13 @@ class DialogCard(django.db.models.Model):
         Conversation,
         on_delete=django.db.models.CASCADE,
     )
-
+    status = django.db.models.CharField(
+        max_length=512,
+        choices=CHOICES,
+        default="Новое",
+    )
     def __str__(self):
-        return f"карточка контакта {self.id} - {self.call_date}"
+        return f"Диалог {self.id}"
 
     class Meta:
         verbose_name = 'карточка контакта'
